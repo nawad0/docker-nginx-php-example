@@ -32,10 +32,9 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data 777
     networks:
       - my-network
-    run: chmod -R 777 ./data/postgres
 networks:
   my-network:
     driver: bridge
