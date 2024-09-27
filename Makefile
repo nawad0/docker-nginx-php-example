@@ -1,9 +1,8 @@
-include .env.example
 install: 
-	docker compose up --build -d
+	docker compose build
 start:
 	docker compose up -d
 stop:
 	docker compose stop
 terminal:
-	docker exec -it ${COMPOSE_PROJECT_NAME}-php-1 sh
+	docker compose exec php sh
