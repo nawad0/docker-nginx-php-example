@@ -1,5 +1,5 @@
-version: '3'
 services:
+  
   nginx:
     build:
       context: .
@@ -12,6 +12,7 @@ services:
       - php
     networks:
       - my-network
+  
   php:
     build:
       context: .
@@ -23,6 +24,7 @@ services:
     networks:
       - my-network
     user: "1000:1000"
+  
   db:
     image: postgres:12-alpine
     environment:
@@ -35,6 +37,7 @@ services:
       - ./data/postgres:/var/lib/postgresql/data 777
     networks:
       - my-network
+
 networks:
   my-network:
     driver: bridge
