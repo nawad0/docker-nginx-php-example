@@ -3,19 +3,19 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./docker:/app/
+      - .:/app/
     depends_on:
       - php
     networks:
-      - my-network
+      - network
   
   php:
     volumes:
-      - ./app:/app/
+      - ../app:/app/
     depends_on:
       - db
     networks:
-      - my-network
+      - network
     user: "1000:1000"
   
   db:
@@ -29,4 +29,4 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - my-network
+      - network

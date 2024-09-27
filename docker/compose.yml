@@ -1,0 +1,19 @@
+services:
+  nginx:
+    build: ./nginx/
+    container_name: ${COMPOSE_PROJECT_NAME}-nginx
+
+  php:
+    build: ./php/
+    container_name: ${COMPOSE_PROJECT_NAME}-php
+
+  db:
+    image: postgres:12-alpine
+    container_name: ${COMPOSE_PROJECT_NAME}-db
+
+networks:
+  network:
+    driver: bridge
+
+volumes:
+  pgdata:
